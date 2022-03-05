@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 /* Modelo = campos que lleva el usuario para agregar en la bd */
 const usuarioSchema = mongoose.Schema({
-  nombre: {
+  cuenta: {
     type: String,
     required: true,
     trim: true,

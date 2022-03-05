@@ -114,3 +114,17 @@ exports.editarMateria = async (req, res) => {
     res.status(500).json({ msg: "Hubo un error" });
   }
 };
+
+/* Obtener las materias filtradas */
+exports.obtenerMateriasFilter = async (req, res) => {
+  try {
+    const materias = await MateriasModels.find({
+      creador: req.usuario.id,
+      grado: req.body.grado,
+    }).sort({ grado: 1 });
+    res.json({ materias });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Hubo un error" });
+  }
+};
